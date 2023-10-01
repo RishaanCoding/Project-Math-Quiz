@@ -3,6 +3,7 @@ player2_name = localStorage.getItem("player2_name");
 
 player1_score = 0;
 player2_score = 0;
+actual_answer = 0;
 
 document.getElementById("player1_name").innerHTML = player1_name + " : ";
 document.getElementById("player2_name").innerHTML = player2_name + " : ";
@@ -34,10 +35,8 @@ answer_turn = "player2";
 
 function check()
 {
-get_answer = document.getElementById("input_check_box").value;
-answer = get_answer.toLowerCase();
-console.log("answer in lower case - " + answer);
-if(answer == word)	
+get_answer = parseInt(document.getElementById("input_check_box").value);
+if(get_answer == actual_answer)	
 {
     if(answer_turn == "player1")
     {
@@ -46,7 +45,8 @@ if(answer == word)
     }
     else 
     {
-        player2_score = player2_score +1;
+        // player2_score = player2_score +1;
+        ++player2_score;
         document.getElementById("player2_score").innerHTML = player2_score;
     }
 }
